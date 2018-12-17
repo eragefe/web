@@ -45,12 +45,12 @@ def save_credentials():
 
 @app.route('/dispon', methods = ['GET', 'POST'])
 def dispon():
-    os.system('service oled start')
+    os.system('systemctl start oled')
     return render_template('app.html')
 
 @app.route('/dispoff', methods = ['GET', 'POST'])
 def dispoff():
-    os.system('service oled stop')
+    os.system('systemctl stop oled')
     os.system('python /root/oled_Nanopi_Neo2/off.py')
     return render_template('app.html')
 
