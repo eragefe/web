@@ -30,7 +30,7 @@ def tidal_save_credentials():
     ssid = request.form['ssid']
     wifi_key = request.form['wifi_key']
     create_upmpdcli(ssid, wifi_key)
-    os.system('mv upmpdcli.tmp /ro/etc/upmpdcli.conf')
+    os.system('mv upmpdcli.tmp /media/root-ro/etc/upmpdcli.conf')
     time.sleep(1)
     os.system('reboot')
 
@@ -39,19 +39,19 @@ def save_credentials():
     ssid = request.form['ssid']
     wifi_key = request.form['wifi_key']
     create_wpa_supplicant(ssid, wifi_key)
-    os.system('mv wpa_supplicant.conf.tmp /ro/etc/wpa_supplicant/wpa_supplicant.conf')
+    os.system('mv wpa_supplicant.conf.tmp /media/root-ro/etc/wpa_supplicant/wpa_supplicant.conf')
     time.sleep(1)
     os.system('reboot')
 
 @app.route('/dispon', methods = ['GET', 'POST'])
 def dispon():
-    os.system('systemctl start oled')
+    os.system('service oled start')
     return render_template('app.html')
 
 @app.route('/dispoff', methods = ['GET', 'POST'])
 def dispoff():
-    os.system('systemctl stop oled')
-    os.system('python /root/oled/off.py')
+    os.system('service oled stop')
+    os.system('python /root/oled_Nanopi_Neo2/off.py')
     return render_template('app.html')
 
 @app.route('/reboot', methods = ['GET', 'POST'])
@@ -66,22 +66,22 @@ def poweroff():
 
 @app.route('/squeeze', methods = ['GET', 'POST'])
 def squeeze():
-    os.system('mount -o remount rw /ro')
-    os.system('cp /ro/etc/squeezelite /ro/etc/init.d')
+    os.system('mount -o remount rw /media/root-ro')
+    os.system('cp /media/root-ro/etc/squeezelite /media/root-ro/etc/init.d')
     os.system('squeezelite -n GDis_squeeze -o hw:0 -z')
-    os.system('cp /ro/root/overlayroot/templates/app_sq.html /ro/root/overlayroot/templates/app.html')
-    os.system('cp /root/overlayroot/templates/app_sq.html /root/overlayroot/templates/app.html')
-    os.system('mount -o remount ro /ro')
+    os.system('cp /media/root-ro/root/neo2/templates/app_sq.html /media/root-ro/root/neo2/templates/app.html')
+    os.system('cp /root/neo2/templates/app_sq.html /root/neo2/templates/app.html')
+    os.system('mount -o remount ro /media/root-ro')
     return render_template('app.html')
 
 @app.route('/upnp', methods = ['GET', 'POST'])
 def upnp():
-    os.system('mount -o remount rw /ro')
+    os.system('mount -o remount rw /media/root-ro')
     os.system('killall squeezelite')
-    os.system('rm /ro/etc/init.d/squeezelite')
-    os.system('cp /ro/root/overlayroot/templates/app_up.html /ro/root/overlayroot/templates/app.html')
-    os.system('cp /root/overlayroot/templates/app_up.html /root/overlayroot/templates/app.html')
-    os.system('mount -o remount ro /ro')
+    os.system('rm /media/root-ro/etc/init.d/squeezelite')
+    os.system('cp /media/root-ro/root/neo2/templates/app_up.html /media/root-ro/root/neo2/templates/app.html')
+    os.system('cp /root/neo2/templates/app_up.html /root/neo2/templates/app.html')
+    os.system('mount -o remount ro /media/root-ro')
     return render_template('app.html')
 
 ######## FUNCTIONS ##########
@@ -114,7 +114,7 @@ def create_wpa_supplicant(ssid, wifi_key):
         temp_conf_file.write('	psk="' + wifi_key + '"\n')
     temp_conf_file.write('	}')
     temp_conf_file.close
-    os.system('mount -o remount rw /ro')
+    os.system('mount -o remount rw /media/root-ro')
 
 def create_upmpdcli(ssid, wifi_key):
 
@@ -127,7 +127,7 @@ def create_upmpdcli(ssid, wifi_key):
     temp_conf_file.write('tidalpass = ' + wifi_key + '\n')
     temp_conf_file.write('tidalquality = lossless\n')
     temp_conf_file.close
-    os.system('mount -o remount rw /ro')
+    os.system('mount -o remount rw /media/root-ro')
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port = 80)
