@@ -6,7 +6,7 @@ cp mountusb /root
 cp umountusb /root
 
 apt-get update
-add-apt-repository ppa:jean-francois-dockes/upnpp1
+add-apt-repository ppa:jean-francois-dockes/upnpp1 -y
 apt-get install python3 python3-pip python3-setuptools mpd mpc upmpdcli upmpdcli-tidal squeezelite minidlna autoconf make i2c-tools python3-dev python3-smbus python-mpd -y --allow-unauthenticated -y --allow-unauthenticated
 cp mpd.conf /etc/mpd.conf
 mv /etc/upmpdcli.conf /etc/upmpdcli.conf.orig
@@ -14,21 +14,18 @@ cp upmpdcli.conf /etc/upmpdcli.conf
 cp minidlna.conf /etc/minidlna.conf
 mv /etc/init.d/squeezelite /etc/squeezelite
 cp squeezelite /etc/default/squeezelite
-dphys-swapfile swapoff
-dphys-swapfile uninstall
-update-rc.d dphys-swapfile remove
 update-rc.d minidlna defaults
 cp sun50i-h5-nanopi-neo2-v1.1.dtb /boot/dtb/allwinner
 cp armbianEnv.txt /boot
 
-sed -i '$ i python3 /root/neo2/app.py &' /etc/rc.local
-sed -i '$ i bash /root/mountusb &' /etc/rc.local
 sed -i '$ i echo "4" > /sys/class/gpio/export' /etc/rc.local
 sed -i '$ i echo "out" > /sys/class/gpio/gpio4/direction' /etc/rc.local
 sed -i '$ i echo "5" > /sys/class/gpio/export' /etc/rc.local
 sed -i '$ i echo "out" > /sys/class/gpio/gpio5/direction' /etc/rc.local
 sed -i '$ i echo "1" > /sys/class/gpio/gpio4/value
 sed -i '$ i echo "1" > /sys/class/gpio/gpio5/value
+sed -i '$ i python3 /root/neo2/app.py &' /etc/rc.local
+sed -i '$ i bash /root/mountusb &' /etc/rc.local
 sed -i '$ i mpc volume 50' /etc/rc.local
 
 pip3 install flask
@@ -46,6 +43,9 @@ echo
 echo "---Installing OLED---"
 sleep 3
 
+cd /root
+git clone https://github.com/eragefe/oled_Nanopi_Neo2
+cd oled_Nanopi_Neo2
 cp oled.service /etc/systemd/system
 systemctl enable oled
 
