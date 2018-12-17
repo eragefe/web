@@ -36,10 +36,10 @@ echo
 echo "---Insalling roon---"
 sleep 3
 
-#cd /root
-#curl -O http://download.roonlabs.com/builds/roonbridge-installer-linuxarmv7hf.sh
-#chmod +x roonbridge-installer-linuxarmv7hf.sh
-#yes yes | ./roonbridge-installer-linuxarmv7hf.sh
+cd /root
+curl -O http://download.roonlabs.com/builds/roonbridge-installer-linuxarmv8.sh
+chmod +x roonbridge-installer-linuxarmv8.sh
+yes yes | ./roonbridge-installer-linuxarmv8.sh
 
 echo
 echo "---Installing OLED---"
