@@ -58,7 +58,7 @@ sleep 3
 apt-get install overlayroot -y
 mv /etc/overlayroot.conf /etc/overlayroot.conf.orig
 touch /etc/overlayroot.conf
-echo overlayroot="" > /etc/overlayroot.conf
+echo overlayroot="tmpfs" > /etc/overlayroot.conf
 
 echo 
 echo "##############################################"
