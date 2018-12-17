@@ -28,7 +28,7 @@ sed -i '$ i python3 /root/neo2/app.py &' /etc/rc.local
 sed -i '$ i bash /root/mountusb &' /etc/rc.local
 sed -i '$ i mpc volume 50' /etc/rc.local
 
-pip3 install flask luma.oled 
+pip3 install flask luma.oled
 
 echo
 echo "---Insalling roon---"
