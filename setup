@@ -51,6 +51,8 @@ cd oled_Nanopi_Neo2
 cp oled.service /etc/systemd/system
 systemctl enable oled
 
+ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+
 echo
 echo "---Insalling overlayroot---"
 sleep 3
