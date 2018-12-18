@@ -29,6 +29,7 @@ sed -i '$ i echo "1" > /sys/class/gpio/gpio199/value' /etc/rc.local
 sed -i '$ i python3 /root/neo2/app.py &' /etc/rc.local
 sed -i '$ i bash /root/mountusb &' /etc/rc.local
 sed -i '$ i mpc volume 50' /etc/rc.local
+sed -i '$ i ifconfig wlan0 up' /etc/rc.local
 
 pip3 install flask
 pip install setuptools
