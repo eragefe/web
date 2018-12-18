@@ -18,12 +18,12 @@ update-rc.d minidlna defaults
 cp sun50i-h5-nanopi-neo2-v1.1.dtb /boot/dtb/allwinner
 cp armbianEnv.txt /boot
 
-sed -i '$ i echo "4" > /sys/class/gpio/export' /etc/rc.local
-sed -i '$ i echo "out" > /sys/class/gpio/gpio4/direction' /etc/rc.local
-sed -i '$ i echo "1" > /sys/class/gpio/gpio4/value' /etc/rc.local
-sed -i '$ i echo "5" > /sys/class/gpio/export' /etc/rc.local
-sed -i '$ i echo "out" > /sys/class/gpio/gpio5/direction' /etc/rc.local
-sed -i '$ i echo "1" > /sys/class/gpio/gpio5/value' /etc/rc.local
+sed -i '$ i echo "198" > /sys/class/gpio/export' /etc/rc.local
+sed -i '$ i echo "out" > /sys/class/gpio/gpio198/direction' /etc/rc.local
+sed -i '$ i echo "1" > /sys/class/gpio/gpio198/value' /etc/rc.local
+sed -i '$ i echo "199" > /sys/class/gpio/export' /etc/rc.local
+sed -i '$ i echo "out" > /sys/class/gpio/gpio199/direction' /etc/rc.local
+sed -i '$ i echo "1" > /sys/class/gpio/gpio199/value' /etc/rc.local
 sed -i '$ i python3 /root/neo2/app.py &' /etc/rc.local
 sed -i '$ i bash /root/mountusb &' /etc/rc.local
 sed -i '$ i mpc volume 50' /etc/rc.local
