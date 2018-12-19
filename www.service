@@ -4,7 +4,7 @@ After=multi-user.target
  
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /root/neo2/app.py
+ExecStart=/usr/bin/python /root/neo2/app.py
 Restart=on-failure
  
 [Install]
