@@ -31,8 +31,6 @@ sed -i '$ i mpc volume 50' /etc/rc.local
 sed -i '$ i ifconfig wlan0 up' /etc/rc.local
 sed -i '$ i bash /root/wifi' /etc/rc.local
 
-pip3 install luma.oled flask
-
 echo
 echo "---Insalling roon---"
 sleep 3
