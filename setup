@@ -7,7 +7,7 @@ cp umountusb /root
 
 apt-get update
 add-apt-repository ppa:jean-francois-dockes/upnpp1 -y
-apt-get install python3 python3-pip python-pip python3-setuptools mpd mpc upmpdcli upmpdcli-tidal squeezelite minidlna i2c-tools python3-dev python-dev python3-smbus python-mpd libfreetype6-dev libjpeg-dev build-essential -y --allow-unauthenticated -y --allow-unauthenticated
+apt-get install python3 python3-pip python3-setuptools mpd mpc upmpdcli upmpdcli-tidal squeezelite minidlna i2c-tools python3-dev python3-smbus python-mpd libfreetype6-dev libjpeg-dev build-essential -y --allow-unauthenticated -y --allow-unauthenticated
 cp mpd.conf /etc/mpd.conf
 mv /etc/upmpdcli.conf /etc/upmpdcli.conf.orig
 cp upmpdcli.conf /etc/upmpdcli.conf
@@ -31,9 +31,8 @@ sed -i '$ i mpc volume 50' /etc/rc.local
 sed -i '$ i ifconfig wlan0 up' /etc/rc.local
 sed -i '$ i bash /root/wifi' /etc/rc.local
 
-pip3 install flask
-pip install setuptools
-pip install luma.oled
+pip3 install setuptools
+pip3 install luma.oled flask
 
 echo
 echo "---Insalling roon---"
