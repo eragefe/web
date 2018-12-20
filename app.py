@@ -40,7 +40,7 @@ def save_credentials():
     wifi_key = request.form['wifi_key']
     create_wpa_supplicant(ssid, wifi_key)
     os.system('mv wifi.tmp /media/root-ro/root/wifi')
-    os.system('sed -i '$ i bash /root/wifi' /media/root-ro/etc/rc.local')
+    os.system('sed -i "$ i bash /root/wifi" /media/root-ro/etc/rc.local')
     time.sleep(1)
     os.system('reboot')
 
