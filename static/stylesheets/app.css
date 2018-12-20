@@ -186,8 +186,19 @@ select.wifiNetworkInputs {
         font-size: 1.5rem;
         color: #000;
 }
-
 .spot{
+        font-size: 1.5rem;
+        color: #ffc300;
+}
+.streamer{
+        font-size: 1.5rem;
+        color: #ffc300;
+}
+.optical1{
+        font-size: 1.5rem;
+        color: #ffc300;
+}
+.optical2{
         font-size: 1.5rem;
         color: #ffc300;
 }
