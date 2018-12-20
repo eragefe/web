@@ -21,7 +21,7 @@ cp www.service /etc/systemd/system
 systemctl enable www
 
 sed -i '$ i bash /root/mountusb &' /etc/rc.local
-sed -i '$ i mpc volume 50' /etc/rc.local
+sed -i '$ i mpc volume 65' /etc/rc.local
 
 echo
 echo "---Insalling roon---"
