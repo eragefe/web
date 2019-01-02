@@ -22,7 +22,6 @@ systemctl enable www
 
 sed -i '$ i bash /root/mountusb &' /etc/rc.local
 sed -i '$ i mpc volume 65' /etc/rc.local
-sed -i '$ i none' /sys/class/leds/nanopi:green:status/trigger
 
 echo
 echo "---Insalling roon---"
