@@ -30,7 +30,7 @@ def tidal_save_credentials():
     ssid = request.form['ssid']
     wifi_key = request.form['wifi_key']
     create_upmpdcli(ssid, wifi_key)
-    os.system('mv upmpdcli.tmp /media/root-ro/etc/upmpdcli.conf')
+    os.system('mv upmpdcli.tmp /etc/upmpdcli.conf')
     time.sleep(1)
     os.system('reboot')
 
@@ -39,8 +39,8 @@ def save_credentials():
     ssid = request.form['ssid']
     wifi_key = request.form['wifi_key']
     create_wpa_supplicant(ssid, wifi_key)
-    os.system('mv wifi.tmp /media/root-ro/root/wifi')
-    os.system('sed -i "$ i bash /root/wifi" /media/root-ro/etc/rc.local')
+    os.system('mv wifi.tmp /root/wifi')
+    os.system('sed -i "$ i bash /root/wifi" /etc/rc.local')
     time.sleep(1)
     os.system('reboot')
 
@@ -88,12 +88,9 @@ def optical2():
 
 @app.route('/squeeze', methods = ['GET', 'POST'])
 def squeeze():
-    os.system('mount -o remount rw /media/root-ro')
-    os.system('cp /media/root-ro/etc/squeezelite /media/root-ro/etc/init.d')
+    os.system('cp /etc/squeezelite /etc/init.d')
     os.system('squeezelite -n GDis_squeeze -o hw:0 -z')
-    os.system('cp /media/root-ro/root/neo2/templates/app_sq.html /media/root-ro/root/neo2/templates/app.html')
     os.system('cp /root/neo2/templates/app_sq.html /root/neo2/templates/app.html')
-    os.system('mount -o remount ro /media/root-ro')
     return render_template('app.html')
 
 @app.route('/upnp', methods = ['GET', 'POST'])
@@ -101,9 +98,7 @@ def upnp():
     os.system('mount -o remount rw /media/root-ro')
     os.system('killall squeezelite')
     os.system('rm /media/root-ro/etc/init.d/squeezelite')
-    os.system('cp /media/root-ro/root/neo2/templates/app_up.html /media/root-ro/root/neo2/templates/app.html')
     os.system('cp /root/neo2/templates/app_up.html /root/neo2/templates/app.html')
-    os.system('mount -o remount ro /media/root-ro')
     return render_template('app.html')
 
 ######## FUNCTIONS ##########
@@ -128,7 +123,6 @@ def create_wpa_supplicant(ssid, wifi_key):
     temp_conf_file.write('nmcli r wifi on\n')
     temp_conf_file.write('nmcli d wifi connect ' + ssid + '  password  ' + wifi_key + '\n')
     temp_conf_file.close
-    os.system('mount -o remount rw /media/root-ro')
 
 def create_upmpdcli(ssid, wifi_key):
 
@@ -141,7 +135,6 @@ def create_upmpdcli(ssid, wifi_key):
     temp_conf_file.write('tidalpass = ' + wifi_key + '\n')
     temp_conf_file.write('tidalquality = lossless\n')
     temp_conf_file.close
-    os.system('mount -o remount rw /media/root-ro')
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port = 80)
