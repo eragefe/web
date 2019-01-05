@@ -36,19 +36,10 @@ echo
 echo "---Installing OLED---"
 sleep 3
 
-cd /root
 pip install --upgrade luma.oled
+pip install flask
 
 ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
-
-echo
-echo "---Insalling overlayroot---"
-sleep 3
-
-apt-get install overlayroot -y
-mv /etc/overlayroot.conf /etc/overlayroot.conf.orig
-touch /etc/overlayroot.conf
-echo overlayroot="tmpfs" > /etc/overlayroot.conf
 
 echo 
 echo "##############################################"
