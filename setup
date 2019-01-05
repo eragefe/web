@@ -15,13 +15,13 @@ cp minidlna.conf /etc/minidlna.conf
 mv /etc/init.d/squeezelite /etc/squeezelite
 cp squeezelite /etc/default/squeezelite
 update-rc.d minidlna defaults
-cp sun50i-h5-nanopi-neo-plus2.dtb /boot/dtb/allwinner
-cp armbianEnv.txt /boot
+#cp sun50i-h5-nanopi-neo-plus2.dtb /boot/dtb/allwinner
+#cp armbianEnv.txt /boot
 
 sed -i '$ i python /root/neoplus2/app.py &' /etc/rc.local
 sed -i '$ i python /root/neoplus2/oled/oled.py &' /etc/rc.local
 sed -i '$ i bash /root/mountusb &' /etc/rc.local
-sed -i '$ i mpc volume 65' /etc/rc.local
+sed -i '$ i mpc volume 66' /etc/rc.local
 
 echo
 echo "---Insalling roon---"
