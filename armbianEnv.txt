@@ -1,7 +1,0 @@
-verbosity=1
-console=both
-overlay_prefix=sun50i-h5
-overlays=i2c0 usbhost1 usbhost2 spdif-out
-rootdev=UUID=ee092379-cddf-4aff-beb3-7cc62d0fe9bd
-rootfstype=ext4
-usbstoragequirks=0x2537:0x1066:u,0x2537:0x1068:u
