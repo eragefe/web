@@ -94,10 +94,10 @@ class MPDConnect(object):
 
         return({'state':state, 'artist':artist, 'title':title, 'eltime':eltime, 'volume':int(vol), 'audio_info':audio_info})
 
-font = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 47)
-font2 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 13)
-font3 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 23)
-font4 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Arial-Bold.ttf', 20)
+font = ImageFont.truetype('/root/neoplus2/oled/Verdana.ttf', 47)
+font2 = ImageFont.truetype('/root/neoplus2/oled/Verdana.ttf', 13)
+font3 = ImageFont.truetype('/root/neoplus2/oled/Verdana.ttf', 23)
+font4 = ImageFont.truetype('/root/neoplus2/oled/Arial-Bold.ttf', 20)
 
 os.system('echo "199" > /sys/class/gpio/export')
 os.system('echo "out" > /sys/class/gpio/gpio199/direction')
