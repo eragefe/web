@@ -51,7 +51,8 @@ def dispon():
 
 @app.route('/dispoff', methods = ['GET', 'POST'])
 def dispoff():
-    os.system('systemctl stop oled')
+    pid = os.popen('pgrep -f oled').read().strip()
+    os.system('kill -9 str(pid)')
     os.system('python /root/oled/off.py')
     return render_template('app.html')
 
