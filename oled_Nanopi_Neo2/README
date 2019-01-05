@@ -1,9 +1,0 @@
-# oled_Nanopi_Neo2
-
-Install luma.oled
-
-cd /root
-git clone https://github.com/eragefe/oled_Nanopi_Neo2
-cd oled_Nanopi_Neo2
-cp oled.service /etc/systemd/system
-systemctl enable oled
