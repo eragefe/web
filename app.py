@@ -68,21 +68,18 @@ def poweroff():
 
 @app.route('/streamer', methods = ['GET', 'POST'])
 def streamer():
-    time.sleep(1)
     os.system('echo "0" > /sys/class/gpio/gpio198/value')
     os.system('echo "0" > /sys/class/gpio/gpio199/value')
     return render_template('app.html')
 
 @app.route('/optical1', methods = ['GET', 'POST'])
 def optical1():
-    time.sleep(1)
     os.system('echo "1" > /sys/class/gpio/gpio198/value')
     os.system('echo "0" > /sys/class/gpio/gpio199/value')
     return render_template('app.html')
 
 @app.route('/optical2', methods = ['GET', 'POST'])
 def optical2():
-    time.sleep(1)
     os.system('echo "1" > /sys/class/gpio/gpio198/value')
     os.system('echo "1" > /sys/class/gpio/gpio199/value')
     return render_template('app.html')
@@ -91,7 +88,7 @@ def optical2():
 def squeeze():
     os.system('cp /etc/squeezelite /etc/init.d')
     os.system('squeezelite -n GDis_squeeze -o hw:0 -z')
-    os.system('cp /root/neo2/templates/app_sq.html /root/neo2/templates/app.html')
+    os.system('cp /root/neoplus2/templates/app_sq.html /root/neoplus2/templates/app.html')
     return render_template('app.html')
 
 @app.route('/upnp', methods = ['GET', 'POST'])
@@ -99,7 +96,7 @@ def upnp():
     os.system('mount -o remount rw /media/root-ro')
     os.system('killall squeezelite')
     os.system('rm /media/root-ro/etc/init.d/squeezelite')
-    os.system('cp /root/neo2/templates/app_up.html /root/neo2/templates/app.html')
+    os.system('cp /root/neoplus2/templates/app_up.html /root/neoplus2/templates/app.html')
     return render_template('app.html')
 
 ######## FUNCTIONS ##########
