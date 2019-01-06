@@ -105,6 +105,7 @@ os.system('echo "0" > /sys/class/gpio/gpio199/value')
 os.system('echo "198" > /sys/class/gpio/export')
 os.system('echo "out" > /sys/class/gpio/gpio198/direction')
 os.system('echo "0" > /sys/class/gpio/gpio198/value')
+os.system('echo "0" > /sys/class/leds/nanopi:green:pwr/brightness')
 
 with canvas(device) as draw:
     device.contrast(0)
