@@ -1,0 +1,44 @@
+// Definitions for G-Dis DAC
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "allwinner,sun8i-h3";
+
+	fragment@0 {
+		target = <&i2s0>;
+		__overlay__ {
+			pinctrl-0 = <&i2s0_pins>;
+			pinctrl-names = "default";
+			status = "okay";
+		};
+	};
+
+	fragment@1 {
+		target-path = "/";
+		__overlay__ {
+			i2s0_out: i2s0-out {
+				#sound-dai-cells = <0>;
+				compatible = "linux,spdif-dit";
+			};
+
+			sound_i2s {
+				simple-audio-card,name = "G-Dis DAC";
+				compatible = "simple-audio-card";
+				simple-audio-card,format = "i2s";
+				simple-audio-card,bitclock-master = <&codec_dai>; 
+				simple-audio-card,frame-master = <&codec_dai>; 
+				simple-audio-card,mclk-fs = <256>;
+				status = "okay";
+
+				simple-audio-card,cpu {
+					sound-dai = <&i2s0>;
+				};
+
+				codec_dai: simple-audio-card,codec {
+					sound-dai = <&i2s0_out>;
+				};
+			};
+		};
+	};
+};
