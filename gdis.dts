@@ -26,12 +26,12 @@
 				simple-audio-card,name = "G-Dis DAC";
 				compatible = "simple-audio-card";
 				simple-audio-card,format = "i2s";
-				simple-audio-card,bitclock-master = <&codec_dai>; 
-				simple-audio-card,frame-master = <&codec_dai>; 
+				simple-audio-card,bitclock-master = <&cpu_dai>; 
+				simple-audio-card,frame-master = <&cpu_dai>; 
 				simple-audio-card,mclk-fs = <256>;
 				status = "okay";
 
-				simple-audio-card,cpu {
+				cpu_dai: simple-audio-card,cpu {
 					sound-dai = <&i2s0>;
 				};
 
