@@ -99,27 +99,27 @@ def slow():
     os.system('cp /root/neoplus2/templates/app_up.html /root/neoplus2/templates/app.html')
     return render_template('app.html')
 
-@app.route('/slow', methods = ['GET', 'POST'])
+@app.route('/sdsharp', methods = ['GET', 'POST'])
 def sdsharp():
     os.system('mount -o remount rw /media/root-ro')
     return render_template('app.html')
 
-@app.route('/slow', methods = ['GET', 'POST'])
+@app.route('/sdslow', methods = ['GET', 'POST'])
 def sdslow():
     os.system('mount -o remount rw /media/root-ro')
     return render_template('app.html')
 
-@app.route('/slow', methods = ['GET', 'POST'])
+@app.route('/superslow', methods = ['GET', 'POST'])
 def superslow():
     os.system('mount -o remount rw /media/root-ro')
     return render_template('app.html')
 
-@app.route('/slow', methods = ['GET', 'POST'])
+@app.route('/coaxial1', methods = ['GET', 'POST'])
 def coaxial1():
     os.system('mount -o remount rw /media/root-ro')
     return render_template('app.html')
 
-@app.route('/slow', methods = ['GET', 'POST'])
+@app.route('/coaxial2', methods = ['GET', 'POST'])
 def coaxial2():
     os.system('mount -o remount rw /media/root-ro')
     return render_template('app.html')
