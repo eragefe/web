@@ -114,6 +114,16 @@ def superslow():
     os.system('mount -o remount rw /media/root-ro')
     return render_template('app.html')
 
+@app.route('/slow', methods = ['GET', 'POST'])
+def coaxial1():
+    os.system('mount -o remount rw /media/root-ro')
+    return render_template('app.html')
+
+@app.route('/slow', methods = ['GET', 'POST'])
+def coaxial2():
+    os.system('mount -o remount rw /media/root-ro')
+    return render_template('app.html')
+
 ######## FUNCTIONS ##########
 
 def scan_wifi_networks():
