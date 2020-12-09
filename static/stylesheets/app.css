@@ -172,12 +172,27 @@ select.wifiNetworkInputs {
         color: #ffc300;
 }
 
-.squeeze{
+.sharp{
         font-size: 1.5rem;
         color: #ffc300;
 }
 
-.upnp{
+.slow{
+        font-size: 1.5rem;
+        color: #ffc300;
+}
+
+.sdsharp{
+        font-size: 1.5rem;
+        color: #ffc300;
+}
+
+.sdslow{
+        font-size: 1.5rem;
+        color: #ffc300;
+}
+
+.superslow{
         font-size: 1.5rem;
         color: #ffc300;
 }

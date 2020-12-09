@@ -84,19 +84,34 @@ def optical2():
     os.system('echo "1" > /sys/class/gpio/gpio199/value')
     return render_template('app.html')
 
-@app.route('/squeeze', methods = ['GET', 'POST'])
-def squeeze():
+@app.route('/sharp', methods = ['GET', 'POST'])
+def sharp():
     os.system('cp /etc/squeezelite /etc/init.d')
     os.system('squeezelite -n GDis_squeeze -o hw:0 -z')
     os.system('cp /root/neoplus2/templates/app_sq.html /root/neoplus2/templates/app.html')
     return render_template('app.html')
 
-@app.route('/upnp', methods = ['GET', 'POST'])
-def upnp():
+@app.route('/slow', methods = ['GET', 'POST'])
+def slow():
     os.system('mount -o remount rw /media/root-ro')
     os.system('killall squeezelite')
     os.system('rm /media/root-ro/etc/init.d/squeezelite')
     os.system('cp /root/neoplus2/templates/app_up.html /root/neoplus2/templates/app.html')
+    return render_template('app.html')
+
+@app.route('/slow', methods = ['GET', 'POST'])
+def sdsharp():
+    os.system('mount -o remount rw /media/root-ro')
+    return render_template('app.html')
+
+@app.route('/slow', methods = ['GET', 'POST'])
+def sdslow():
+    os.system('mount -o remount rw /media/root-ro')
+    return render_template('app.html')
+
+@app.route('/slow', methods = ['GET', 'POST'])
+def superslow():
+    os.system('mount -o remount rw /media/root-ro')
     return render_template('app.html')
 
 ######## FUNCTIONS ##########
