@@ -86,67 +86,66 @@ def optical2():
 
 @app.route('/sharp', methods = ['GET', 'POST'])
 def sharp():
-    os.system('cp /etc/squeezelite /etc/init.d')
-    os.system('squeezelite -n GDis_squeeze -o hw:0 -z')
-    os.system('cp /root/neoplus2/templates/app_sq.html /root/neoplus2/templates/app.html')
+    os.system('i2cset -y 1 17 1 0x02')
+    os.system('i2cset -y 1 17 2 0x00')
     return render_template('app.html')
 
 @app.route('/slow', methods = ['GET', 'POST'])
 def slow():
-    os.system('mount -o remount rw /media/root-ro')
-    os.system('killall squeezelite')
-    os.system('rm /media/root-ro/etc/init.d/squeezelite')
-    os.system('cp /root/neoplus2/templates/app_up.html /root/neoplus2/templates/app.html')
+    os.system('i2cset -y 1 17 1 0x02')
+    os.system('i2cset -y 1 17 2 0x01')
     return render_template('app.html')
 
 @app.route('/sdsharp', methods = ['GET', 'POST'])
 def sdsharp():
-    os.system('mount -o remount rw /media/root-ro')
+    os.system('i2cset -y 1 17 1 0x22')
+    os.system('i2cset -y 1 17 2 0x00')
     return render_template('app.html')
 
 @app.route('/sdslow', methods = ['GET', 'POST'])
 def sdslow():
-    os.system('mount -o remount rw /media/root-ro')
+    os.system('i2cset -y 1 17 1 0x22')
+    os.system('i2cset -y 1 17 2 0x01')
     return render_template('app.html')
 
 @app.route('/superslow', methods = ['GET', 'POST'])
 def superslow():
-    os.system('mount -o remount rw /media/root-ro')
+    os.system('i2cset -y 1 17 5 0x01')
     return render_template('app.html')
 
 @app.route('/coaxial1', methods = ['GET', 'POST'])
 def coaxial1():
-    os.system('mount -o remount rw /media/root-ro')
+    os.system('')
     return render_template('app.html')
 
 @app.route('/coaxial2', methods = ['GET', 'POST'])
 def coaxial2():
-    os.system('mount -o remount rw /media/root-ro')
+    os.system('')
     return render_template('app.html')
 
 @app.route('/s1', methods = ['GET', 'POST'])
 def s1():
-    os.system('mount -o remount rw /media/root-ro')
+    os.system('i2cset -y 1 17 8 0x00')
     return render_template('app.html')
 
 @app.route('/s2', methods = ['GET', 'POST'])
 def s2():
-    os.system('mount -o remount rw /media/root-ro')
+    os.system('i2cset -y 1 17 8 0x01')
     return render_template('app.html')
 
 @app.route('/s3', methods = ['GET', 'POST'])
 def s3():
-    os.system('mount -o remount rw /media/root-ro')
+    os.system('i2cset -y 1 17 8 0x02')
     return render_template('app.html')
 
 @app.route('/s4', methods = ['GET', 'POST'])
 def s4():
-    os.system('mount -o remount rw /media/root-ro')
+    os.system('i2cset -y 1 17 8 0x03')
     return render_template('app.html')
 
 @app.route('/s5', methods = ['GET', 'POST'])
 def s5():
-    os.system('mount -o remount rw /media/root-ro')
+    os.system('i2cset -y 1 17 8 0x04')
     return render_template('app.html')
 
 ######## FUNCTIONS ##########
