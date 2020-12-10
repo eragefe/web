@@ -73,6 +73,10 @@ label[for=menu]{
     font-size:1.4rem;
 }
 
+label[for=menu2]{
+    font-size:1.7rem;
+}
+
 /* Select
 ---------------------------------------------------------*/
 
@@ -178,6 +182,31 @@ select.wifiNetworkInputs {
 }
 
 .slow{
+        font-size: 1.5rem;
+        color: #ffc300;
+}
+
+.s1{
+        font-size: 1.5rem;
+        color: #ffc300;
+}
+
+.s2{
+        font-size: 1.5rem;
+        color: #ffc300;
+}
+
+.s3{
+        font-size: 1.5rem;
+        color: #ffc300;
+}
+
+.s4{
+        font-size: 1.5rem;
+        color: #ffc300;
+}
+
+.s5{
         font-size: 1.5rem;
         color: #ffc300;
 }

@@ -124,6 +124,31 @@ def coaxial2():
     os.system('mount -o remount rw /media/root-ro')
     return render_template('app.html')
 
+@app.route('/s1', methods = ['GET', 'POST'])
+def s1():
+    os.system('mount -o remount rw /media/root-ro')
+    return render_template('app.html')
+
+@app.route('/s2', methods = ['GET', 'POST'])
+def s2():
+    os.system('mount -o remount rw /media/root-ro')
+    return render_template('app.html')
+
+@app.route('/s3', methods = ['GET', 'POST'])
+def s3():
+    os.system('mount -o remount rw /media/root-ro')
+    return render_template('app.html')
+
+@app.route('/s4', methods = ['GET', 'POST'])
+def s4():
+    os.system('mount -o remount rw /media/root-ro')
+    return render_template('app.html')
+
+@app.route('/s5', methods = ['GET', 'POST'])
+def s5():
+    os.system('mount -o remount rw /media/root-ro')
+    return render_template('app.html')
+
 ######## FUNCTIONS ##########
 
 def scan_wifi_networks():
