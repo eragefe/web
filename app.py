@@ -84,6 +84,16 @@ def optical2():
     os.system('echo "1" > /sys/class/gpio/gpio199/value')
     return render_template('app.html')
 
+@app.route('/coaxial1', methods = ['GET', 'POST'])
+def coaxial1():
+    os.system('')
+    return render_template('app.html')
+
+@app.route('/coaxial2', methods = ['GET', 'POST'])
+def coaxial2():
+    os.system('')
+    return render_template('app.html')
+
 @app.route('/sharp', methods = ['GET', 'POST'])
 def sharp():
     os.system('i2cset -y 1 17 1 0x02')
@@ -111,16 +121,6 @@ def sdslow():
 @app.route('/superslow', methods = ['GET', 'POST'])
 def superslow():
     os.system('i2cset -y 1 17 5 0x01')
-    return render_template('app.html')
-
-@app.route('/coaxial1', methods = ['GET', 'POST'])
-def coaxial1():
-    os.system('')
-    return render_template('app.html')
-
-@app.route('/coaxial2', methods = ['GET', 'POST'])
-def coaxial2():
-    os.system('')
     return render_template('app.html')
 
 @app.route('/s1', methods = ['GET', 'POST'])
