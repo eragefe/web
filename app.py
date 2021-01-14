@@ -167,12 +167,13 @@ def create_wpa_supplicant(ssid, wifi_key):
 
     temp_conf_file = open('wifi.tmp', 'w')
 
-    temp_conf_file.write('#!/bin/bash')
-    temp_conf_file.write('while :; do')
-    temp_conf_file.write('if [[ $(hostname -I) ]]; then')
-    temp_conf_file.write('break; else')
-    temp_conf_file.write('nmcli r wifi on\n')
-    temp_conf_file.write('fi; done')
+    temp_conf_file.write('#!/bin/bash\n')
+    temp_conf_file.write('while :; do\n')
+    temp_conf_file.write('if [[ $(hostname -I) ]]; then\n')
+    temp_conf_file.write('break; else\n')
+    temp_conf_file.write('    nmcli r wifi on\n')
+    temp_conf_file.write('    nmcli d wifi connect ' + ssid + '  password  ' + wifi_key + '\n')
+    temp_conf_file.write('fi; done\n')
     temp_conf_file.close
 
 def create_upmpdcli(ssid, wifi_key):
