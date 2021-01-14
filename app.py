@@ -173,7 +173,7 @@ def create_wpa_supplicant(ssid, wifi_key):
     temp_conf_file.write('  break; else')
     temp_conf_file.write('  nmcli r wifi on\n')
     temp_conf_file.write('  nmcli d wifi connect ' + ssid + '  password  ' + wifi_key + '\n')
-    temp_conf_file.write('fi;done')
+    temp_conf_file.write('fi; done')
     temp_conf_file.close
 
 def create_upmpdcli(ssid, wifi_key):
